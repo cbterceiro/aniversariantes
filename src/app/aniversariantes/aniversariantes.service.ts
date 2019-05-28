@@ -6,8 +6,10 @@ import { Observable, of as observableOf } from 'rxjs';
 import { AniversariosDataSource } from './aniversariantes.data-source';
 
 import { AniversariantesFilter } from './model/aniversariantes-filter.model';
-import { AniversariantesPorData } from './model/aniversariantes-por-data.model';
+import { AniversariantesByDate } from './model/aniversariantes-by-date.model';
 import { Aniversario } from './model/aniversario.model';
+
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +19,14 @@ export class AniversariantesService {
     private httpClient: HttpClient,
   ) { }
 
-  getAniversariantes(filter: AniversariantesFilter): Observable<AniversariantesPorData[]> {
+  getAniversariantes(filter: AniversariantesFilter): Observable<AniversariantesByDate[]> {
     // uma chamada ao backend poderia ser feita desta forma:
     // return this.httpClient.get('/aniversariantes');
     
     const aniversarios = this.filterAniversarios(AniversariosDataSource, filter);
-    //const aniversarios = AniversariosDataSource;
-    const aniversariantesPorData = this.groupAniversariosByDate(aniversarios);
+    const aniversariantesByDate = this.sortAniversariantesByDate(this.groupAniversariosByDate(aniversarios));
 
-    return observableOf(aniversariantesPorData);
+    return observableOf(aniversariantesByDate);
   }
 
   // simulação de um método de filtragem do backend
@@ -33,9 +34,9 @@ export class AniversariantesService {
     if (filter.date) {
       const dateParts = filter.date.split('-');
       const year = Number(dateParts[0]);
-      const month = Number(dateParts[1]);
-
-      aniversarios = aniversarios.filter(a => a.mes === month);
+      const month = Number(dateParts[1]) - 1;
+      
+      aniversarios = aniversarios.filter(a => a.data.month() === month);
     }
 
     if (filter.name) {
@@ -48,16 +49,20 @@ export class AniversariantesService {
   // simulação de um método de agrupamento por data do backend
   groupAniversariosByDate(aniversarios: Aniversario[]) {
     return aniversarios.reduce((aniversariantes, aniversario) => {
-      let date = aniversariantes.find(a => a.dia === aniversario.dia && a.mes === aniversario.mes);
+      let date = aniversariantes.find(a => a.date.format('MMDD') === aniversario.data.format('MMDD'));
       
       if (!date) {
-        date = new AniversariantesPorData(aniversario.dia, aniversario.mes);
+        date = new AniversariantesByDate(aniversario.data);
         aniversariantes.push(date);
       }
       date.aniversariantes.push(aniversario.nomeAniversariante);
       
       return aniversariantes;
-    }, [] as AniversariantesPorData[]);
+    }, [] as AniversariantesByDate[]);
+  }
+
+  sortAniversariantesByDate(aniversariantesByDate: AniversariantesByDate[]): AniversariantesByDate[] {
+    return aniversariantesByDate.sort((a, b) => a.date.format('MMDD').localeCompare(b.date.format('MMDD')));
   }
 
 }

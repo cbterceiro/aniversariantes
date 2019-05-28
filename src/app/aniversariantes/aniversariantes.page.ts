@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AniversariantesFilter } from './model/aniversariantes-filter.model';
 import { AniversariantesService } from './aniversariantes.service';
-import { AniversariantesPorData } from './model/aniversariantes-por-data.model';
+import { AniversariantesByDate } from './model/aniversariantes-by-date.model';
 
 @Component({
   selector: 'app-aniversariantes',
@@ -13,7 +13,7 @@ export class AniversariantesPage implements OnInit {
   segments: { value: string, label: string }[];
   selectedSegment: string;
 
-  aniversariantesPorData: AniversariantesPorData[] = [];
+  aniversariantesByDate: AniversariantesByDate[] = [];
   aniversariantesFilter = new AniversariantesFilter();
 
   constructor(
@@ -47,7 +47,7 @@ export class AniversariantesPage implements OnInit {
 
   onFilter() {
     this.aniversariantesService.getAniversariantes(this.aniversariantesFilter).subscribe(aniversariantes => {
-      this.aniversariantesPorData = aniversariantes;
+      this.aniversariantesByDate = aniversariantes;
     });
   }
 }

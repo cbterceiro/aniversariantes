@@ -1,5 +1,6 @@
+import { Moment } from 'moment';
+
 export class Aniversario {
-  dia: number;
-  mes: number;
+  data: Moment;
   nomeAniversariante: string;
 }
