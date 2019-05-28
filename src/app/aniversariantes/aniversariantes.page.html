@@ -24,14 +24,10 @@
 <ion-content padding>
   <ng-container [ngSwitch]="selectedSegment">
     <ng-container *ngSwitchCase="'aniversarios'">
-      <p no-margin>
-        Veja os cooperados que comemoram aniversários. Selecione uma data ou pesquise pelo nome.
-      </p>
+      <app-aba-aniversarios></app-aba-aniversarios>
     </ng-container>
     <ng-container *ngSwitchCase="'unimed'">
-      <p no-margin>
-        Unimed
-      </p>
+      <app-aba-unimed></app-aba-unimed>
     </ng-container>
   </ng-container>
 </ion-content>
