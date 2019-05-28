@@ -78,3 +78,8 @@
   --ion-color-light-shade: #b6babc;
   --ion-color-light-tint: #d4d7da;
 }
+
+ion-segment-button {
+  --indicator-color-checked: var(--ion-color-tertiary) !important;
+  --color: #00bb6c !important;
+}

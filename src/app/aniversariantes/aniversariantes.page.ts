@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AniversariantesPage implements OnInit {
 
+  segments: { value: string, label: string }[];
+  selectedSegment: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.setupSegments();
+    this.selectedSegment = 'aniversarios';
+  }
+
+  setupSegments() {
+    this.segments = [
+      { value: 'aniversarios', label: 'Aniversários' },
+      { value: 'unimed', label: 'Unimed' },
+    ];
+    this.selectedSegment = 'aniversarios';
+  }
+
+  segmentChanged(event: CustomEvent) {
+    const segmentValue = event.detail.value;
+    this.selectedSegment = segmentValue;
   }
 
 }

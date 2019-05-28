@@ -5,10 +5,19 @@
         <fa name="angle-left" size="2x"></fa>
       </ion-button>
     </ion-buttons>
-    <ion-title>Aniversariantes</ion-title>
+    <ion-title>ANIVERSARIANTES</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    <ion-segment (ionChange)="segmentChanged($event)" [value]="selectedSegment">
+      <ng-container *ngFor="let segment of segments">
+        <ion-segment-button [value]="segment.value">
+          {{ segment.label }}
+        </ion-segment-button>
+      </ng-container>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
