@@ -1,3 +1,15 @@
-<p no-margin>
+<p no-margin padding>
   Veja os cooperados que comemoram aniversários. Selecione uma data ou pesquise pelo nome.
 </p>
+
+<ion-card [button]="true">
+  <ion-item detail lines="none" class="input-data-filtro">
+    <ion-icon name="calendar" color="primary"></ion-icon>
+    <ion-datetime display-format="MMMM - YYYY" picker-format="MMMM YYYY" color="primary" [(ngModel)]="filter.date"></ion-datetime>
+  </ion-item>
+</ion-card>
+
+<ion-item class="input-nome-aniversariante" lines="none">
+  <ion-label>Nome do aniversariante</ion-label>
+  <ion-input [(ngModel)]="filter.name"></ion-input>
+</ion-item>

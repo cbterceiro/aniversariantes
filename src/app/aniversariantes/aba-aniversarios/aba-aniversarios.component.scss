@@ -1,0 +1,22 @@
+.input-data-filtro {
+  --ion-background-color: #ffffff;
+
+  ion-datetime {
+    --padding-top: 16px;
+  }
+}
+
+.input-nome-aniversariante {
+  --ion-background-color: #ffffff;
+  --border-radius: 5px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: #cfd3d6;
+  --box-shadow: none;
+
+  margin: 16px 10px;
+
+  ion-label {
+    font-size: 0.8em;
+  }
+}

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AniversariantesFilter } from '../aniversariantes-filter.model';
 
 @Component({
   selector: 'app-aba-aniversarios',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./aba-aniversarios.component.scss'],
 })
 export class AbaAniversariosComponent {
-
+  @Input() filter: AniversariantesFilter;
 }

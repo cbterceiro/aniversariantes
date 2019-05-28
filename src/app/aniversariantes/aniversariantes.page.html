@@ -21,10 +21,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ng-container [ngSwitch]="selectedSegment">
     <ng-container *ngSwitchCase="'aniversarios'">
-      <app-aba-aniversarios></app-aba-aniversarios>
+      <app-aba-aniversarios [filter]="aniversariantesFilter"></app-aba-aniversarios>
     </ng-container>
     <ng-container *ngSwitchCase="'unimed'">
       <app-aba-unimed></app-aba-unimed>
