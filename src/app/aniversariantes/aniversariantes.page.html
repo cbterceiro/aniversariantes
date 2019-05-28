@@ -5,7 +5,7 @@
         <fa name="angle-left" size="2x"></fa>
       </ion-button>
     </ion-buttons>
-    <ion-title>ANIVERSARIANTES</ion-title>
+    <ion-title class="ion-text-uppercase">Aniversariantes</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
@@ -21,6 +21,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <ng-container [ngSwitch]="selectedSegment">
+    <ng-container *ngSwitchCase="'aniversarios'">
+      <p no-margin>
+        Veja os cooperados que comemoram aniversários. Selecione uma data ou pesquise pelo nome.
+      </p>
+    </ng-container>
+    <ng-container *ngSwitchCase="'unimed'">
+      <p no-margin>
+        Unimed
+      </p>
+    </ng-container>
+  </ng-container>
 </ion-content>
