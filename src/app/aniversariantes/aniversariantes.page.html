@@ -24,7 +24,11 @@
 <ion-content>
   <ng-container [ngSwitch]="selectedSegment">
     <ng-container *ngSwitchCase="'aniversarios'">
-      <app-aba-aniversarios [filter]="aniversariantesFilter"></app-aba-aniversarios>
+      <app-aba-aniversarios
+        [filter]="aniversariantesFilter"
+        [aniversariantesPorData]="aniversariantesPorData"
+        (onFilter)="onFilter()"
+      ></app-aba-aniversarios>
     </ng-container>
     <ng-container *ngSwitchCase="'unimed'">
       <app-aba-unimed></app-aba-unimed>

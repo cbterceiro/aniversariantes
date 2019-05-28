@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { AniversariantesFilter } from '../aniversariantes-filter.model';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AniversariantesFilter } from '../model/aniversariantes-filter.model';
+import { AniversariantesPorData } from '../model/aniversariantes-por-data.model';
 
 @Component({
   selector: 'app-aba-aniversarios',
@@ -8,4 +9,7 @@ import { AniversariantesFilter } from '../aniversariantes-filter.model';
 })
 export class AbaAniversariosComponent {
   @Input() filter: AniversariantesFilter;
+  @Input() aniversariantesPorData: AniversariantesPorData[];
+
+  @Output() onFilter = new EventEmitter();
 }

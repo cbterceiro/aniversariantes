@@ -5,11 +5,13 @@
 <ion-card [button]="true">
   <ion-item detail lines="none" class="input-data-filtro">
     <ion-icon name="calendar" color="primary"></ion-icon>
-    <ion-datetime display-format="MMMM - YYYY" picker-format="MMMM YYYY" color="primary" [(ngModel)]="filter.date"></ion-datetime>
+    <ion-datetime display-format="MMMM - YYYY" picker-format="MMMM YYYY" color="primary" [(ngModel)]="filter.date" (ionChange)="onFilter.emit()"></ion-datetime>
   </ion-item>
 </ion-card>
 
 <ion-item class="input-nome-aniversariante" lines="none">
   <ion-label>Nome do aniversariante</ion-label>
-  <ion-input [(ngModel)]="filter.name"></ion-input>
+  <ion-input [(ngModel)]="filter.name" [debounce]="300" (ionChange)="onFilter.emit()"></ion-input>
 </ion-item>
+
+<pre>{{ aniversariantesPorData | json }}</pre>
