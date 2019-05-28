@@ -14,4 +14,24 @@
   <ion-input [(ngModel)]="filter.name" [debounce]="300" (ionChange)="onFilter.emit()"></ion-input>
 </ion-item>
 
-<pre>{{ aniversariantesPorData | json }}</pre>
+<!-- <pre>{{ aniversariantesPorData | json }}</pre> -->
+
+<hr />
+
+<ng-container *ngFor="let data of aniversariantesPorData">
+  <ion-card class="card-aniversariantes">
+    <ion-card-header>
+      <ion-card-title class="card-aniversariantes-titulo">Aniversariantes do dia</ion-card-title>
+      <div class="card-aniversariantes-data">
+        <div class="card-aniversariantes-data-dia">{{ data.dia }}</div>
+        <div class="card-aniversariantes-data-mes">{{ data.mes }}</div>
+      </div>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p *ngFor="let aniversariante of data.aniversariantes">
+        {{ aniversariante }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ng-container>

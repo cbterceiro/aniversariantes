@@ -20,3 +20,34 @@
     font-size: 0.8em;
   }
 }
+
+.card-aniversariantes {
+  --ion-item-background: #ffffff;
+
+  ion-card-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cfd3d6;
+  }
+
+  ion-card-content {
+    padding-top: 10px;
+  }
+
+  .card-aniversariantes-titulo {
+    flex-grow: 1;
+    text-transform: uppercase;
+    font-size: 1.2em; 
+  }
+
+  .card-aniversariantes-data {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .card-aniversariantes-data-dia {
+      font-size: 2em;
+      color: var(--ion-color-primary);
+    }
+  }
+}
