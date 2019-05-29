@@ -29,11 +29,16 @@
   --ion-item-background: #ffffff;
 
   ion-card-header {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #e8e8e8;
     padding-top: 8px;
     padding-bottom: 8px;
+    
+    .card-aniversariantes-header-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 0 8px 8px 8px;
+    }
   }
 
   ion-card-content {

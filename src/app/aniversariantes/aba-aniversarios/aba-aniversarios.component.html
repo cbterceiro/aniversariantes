@@ -26,10 +26,12 @@
 <ng-container *ngFor="let data of aniversariantesByDate">
   <ion-card class="card-aniversariantes">
     <ion-card-header>
-      <ion-card-title class="card-aniversariantes-titulo">Aniversariantes do dia</ion-card-title>
-      <div class="card-aniversariantes-data">
-        <div class="card-aniversariantes-data-dia">{{ data.date | date:'d' }}</div>
-        <div class="card-aniversariantes-data-mes">{{ data.date | date:'MMM' }}</div>
+      <div class="card-aniversariantes-header-container">
+        <ion-card-title class="card-aniversariantes-titulo">Aniversariantes do dia</ion-card-title>
+        <div class="card-aniversariantes-data">
+          <div class="card-aniversariantes-data-dia">{{ data.date | date:'d' }}</div>
+          <div class="card-aniversariantes-data-mes">{{ data.date | date:'MMM' }}</div>
+        </div>
       </div>
     </ion-card-header>
 
