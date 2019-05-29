@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AniversariantesFilter } from './model/aniversariantes-filter.model';
 import { AniversariantesService } from './aniversariantes.service';
 import { AniversariantesByDate } from './model/aniversariantes-by-date.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-aniversariantes',
@@ -27,7 +28,7 @@ export class AniversariantesPage implements OnInit {
 
   setupFilter() {
     this.aniversariantesFilter = new AniversariantesFilter();
-    this.aniversariantesFilter.date = '2019-05';
+    this.aniversariantesFilter.date = moment().format('YYYY-MM');
 
     this.onFilter();
   }
